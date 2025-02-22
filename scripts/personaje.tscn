@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bd2lgqw7nr8yk"]
+
+[ext_resource type="Texture2D" uid="uid://cy8seusgmnnxx" path="res://Assets/Prototype_Character/Prototype_Character.png" id="1_qevpq"]
+[ext_resource type="Script" path="res://movement.gd" id="2_trhvc"]
+[ext_resource type="Script" path="res://scripts/module_animated.gd" id="3_aub6s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38k4e"]
+atlas = ExtResource("1_qevpq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0j4s"]
+atlas = ExtResource("1_qevpq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jk11f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38k4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0j4s")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 1.0
+}]
+
+[node name="Personaje" type="Node2D"]
+position = Vector2(97, 52)
+
+[node name="animate" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_jk11f")
+animation = &"Idle"
+frame_progress = 0.130002
+
+[node name="movement" type="Node2D" parent="."]
+script = ExtResource("2_trhvc")
+
+[node name="module_animated" type="Node2D" parent="."]
+script = ExtResource("3_aub6s")
