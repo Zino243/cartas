@@ -1,8 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://ce5bc588k5k5x"]
+[gd_scene load_steps=5 format=3 uid="uid://ce5bc588k5k5x"]
 
+[ext_resource type="Texture2D" uid="uid://culrcvxdlnkd7" path="res://cursor pack v2.png" id="1_bnnm8"]
 [ext_resource type="Script" path="res://scripts/control.gd" id="1_twfwb"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qno04"]
+atlas = ExtResource("1_bnnm8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l3q0i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qno04")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
 [node name="Pointer" type="Node2D"]
+position = Vector2(514, 290)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_l3q0i")
+animation = &"Idle"
 
 [node name="Control" type="Node2D" parent="."]
 script = ExtResource("1_twfwb")
