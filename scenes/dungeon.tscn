@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://qkirlhcydkwj"]
+
+[ext_resource type="Script" path="res://scripts/generator.gd" id="1_66tp6"]
+[ext_resource type="Script" path="res://scripts/room_class.gd" id="2_oykm7"]
+
+[node name="dungeon" type="Node2D"]
+
+[node name="Generator" type="Node2D" parent="."]
+script = ExtResource("1_66tp6")
+
+[node name="Room_class" type="Node" parent="."]
+script = ExtResource("2_oykm7")
